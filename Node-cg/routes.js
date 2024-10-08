@@ -1,7 +1,6 @@
-const http = require('http');
 const fs = require('fs');
 
-const server = http.createServer((req,res) => {
+const requestHandler = (req, res) => {
     const url = req.url;
     const method = req.method;
     if (url === '/') {
@@ -17,16 +16,16 @@ const server = http.createServer((req,res) => {
             console.log(chunk);
             body.push(chunk);
         });
-         req.on('end', () => {
+         return req.on('end', () => {
             const parsebody = Buffer.concat(body).toString();
             const message = parsebody.split('=')[1];
-            fs.writeFile('message.txt', message);
+            fs.writeFile('message.txt', message, err => {
+                res.statusCode = 302;
+                res.setHeader('Location', '/');
+                return res.end();
+            });
          });
-        
-    
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
+       
     }
 
     res.setHeader('Content-Type', 'text/html');
@@ -35,6 +34,17 @@ const server = http.createServer((req,res) => {
     res.write('<body><h1>Hello from server##</h1></body>');
     res.write('</html>');
     res.end();
-});
+};
 
-server.listen(4000);
+// module.exports = requestHandler;
+
+// module.exports = {
+//     handler: requestHandler,
+//     someText: 'some hard coded text'
+// };
+
+module.exports.handler = requestHandler;
+module.exports.someText = 'some hard coded text';
+
+// module.exports.handler = requestHandler;
+// module.exports.someText = 'some hard coded text';
