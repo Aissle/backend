@@ -23,7 +23,7 @@ const server = http.createServer((req,res) => {
             fs.writeFile('message.txt', message);
          });
         
-       
+    
         res.statusCode = 302;
         res.setHeader('Location', '/');
         return res.end();
