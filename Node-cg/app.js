@@ -8,8 +8,9 @@ const app = express();
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
+console.log('haha');
 app.use(bodyParser.urlencoded({extended: false}));
-
+console.log('haha2');
 // app.use('/', (req, res, next) => {
 //     //console.log('This always runs!');
 //     next();

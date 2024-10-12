@@ -11,7 +11,7 @@ router.get('/add-product', (req, res, next) => {
 });
 
 router.post('/add-product', (req, res, next) => {
-    //console.log('in product middleware');
+    console.log('in product middleware');
     console.log(req.body);
     res.redirect('/');
     //next(); //allows the request to continue to the next middleware in line
