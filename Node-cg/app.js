@@ -8,9 +8,8 @@ const app = express();
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-console.log('haha');
 app.use(bodyParser.urlencoded({extended: false}));
-console.log('haha2');
+
 // app.use('/', (req, res, next) => {
 //     //console.log('This always runs!');
 //     next();
@@ -24,10 +23,10 @@ app.use((req,res,next) => {
 app.listen(4000 );
 
 //node.js
+// path
+//http
 //npm
 //nodemon
 //express
 //body-parser
 
-// path
-//http
