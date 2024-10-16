@@ -5,6 +5,7 @@ const express = require('express');
 const rootDir = require('../util/path');
 
 const router = express.Router();
+const products = [];
 
 router.get('/add-product', (req, res, next) => {
     //console.log('in add product middleware!');
@@ -15,9 +16,11 @@ router.get('/add-product', (req, res, next) => {
 router.post('/add-product', (req, res, next) => {
     //console.log('in product middleware');
     const justATest = req.body;
-    console.log(req.body);
+    //console.log(req.body);
+    products.push({title: req.body.title})
     res.redirect('/');
     //next(); //allows the request to continue to the next middleware in line
 });
 
-module.exports = router;
+exports.routers = router;
+exports.products = products;
