@@ -9,8 +9,8 @@ const router = express.Router();
 
 router.get('/', (req,res,next) => {
     //console.log('in home middleware');
-    console.log("Shop.js", adminData.products);
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+    res.render('shop');
+    //res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 });
 
 module.exports = router;
