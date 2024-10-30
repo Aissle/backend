@@ -7,8 +7,9 @@ const rootDir = require('../util/path');
 const router = express.Router();
 const products = [];
 
+//admin/add-product
 router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {title: 'add Product'})
+    res.render('add-product', {pageTitle: 'add Product', active: 'add-product'})
     //console.log('in add product middleware!');
     //res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
     //next(); //allows the request to continue to the next middleware in line
