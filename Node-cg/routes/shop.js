@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', (req,res,next) => {
     //console.log('in home middleware');
     const products = adminData.products;
-    res.render('shop', {prods: products, pageTitle: 'shop', active: 'shop'});
+    res.render('shop', {prods: products, pageTitle: 'shop', active: 'shop', hasProds: products.length > 0});
     //res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 });
 
