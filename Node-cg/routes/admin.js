@@ -9,7 +9,12 @@ const products = [];
 
 //admin/add-product
 router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {pageTitle: 'add Product', active: 'add-product'})
+    res.render('add-product', {
+        pageTitle: 'add Product', 
+        active: 'add-product',
+        activeAddProduct: true,
+        productCSS: true,
+        formsCSS: true})
     //console.log('in add product middleware!');
     //res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
     //next(); //allows the request to continue to the next middleware in line
