@@ -22,14 +22,10 @@ app.use(express.static(path.join(rootDir, 'public')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use((req,res,next) => {
-    res.status(404).render('404', {
-        pageTitle: 'Page Not Found', 
-        active: "404"
-        //layout: false
-        });
-    //sendFile(path.join(rootDir, 'views', '404.html'));
+    
 });
 app.listen(4000 );
+
 
 //node.js
 // path
