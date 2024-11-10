@@ -11,6 +11,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const rootDir = require('./util/path');
+const errController = require('./controllers/errController');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(rootDir, 'public')));
@@ -21,9 +22,7 @@ app.use(express.static(path.join(rootDir, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use((req,res,next) => {
-    
-});
+app.use(errController.get404);
 app.listen(4000 );
 
 
