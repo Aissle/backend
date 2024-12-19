@@ -16,13 +16,14 @@ exports.postAddProducts = (req, res, next) => {
 };
 
 exports.getProducts = (req,res,next) => {
-    const products = Product.fetchAll();
-    res.render('shop', {
-        prods: products, 
-        pageTitle: 'shop',
-        active: 'shop',
-        asProds: products.length > 0,
-        productCSS: true, 
-        activeShop: true
+    Product.fetchAll(products => {
+        res.render('shop', {
+            prods: products, 
+            pageTitle: 'shop',
+            active: 'shop',
+            asProds: products.length > 0,
+            productCSS: true, 
+            activeShop: true
+        });
     });
 };
