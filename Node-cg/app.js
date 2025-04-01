@@ -13,7 +13,7 @@ const shopRoutes = require('./routes/shop');
 const rootDir = require('./util/path');
 const errController = require('./controllers/errController');
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));        
 app.use(express.static(path.join(rootDir, 'public')));
 // app.use('/', (req, res, next) => {
 //     //console.log('This always runs!');
