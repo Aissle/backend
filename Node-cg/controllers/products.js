@@ -3,7 +3,7 @@ const Product = require('../models/product');
 exports.getAddProducts = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'add Product', 
-        active: 'add-product',
+        path: '/admin/add-product',
         activeAddProduct: true,
         productCSS: true,
         formsCSS: true})
@@ -20,7 +20,7 @@ exports.getProducts = (req,res,next) => {
         res.render('shop/product-list', {
             prods: products, 
             pageTitle: 'shop',
-            active: 'shop',
+            path: '/',
             asProds: products.length > 0,
             productCSS: true, 
             activeShop: true
