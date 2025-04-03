@@ -4,9 +4,10 @@ exports.getAddProducts = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'add Product', 
         path: '/admin/add-product',
-        activeAddProduct: true,
-        productCSS: true,
-        formsCSS: true})
+        //activeAddProduct: true,
+        //productCSS: true,
+        //formsCSS: true
+        })
 };
 
 exports.postAddProducts = (req, res, next) => {
@@ -22,8 +23,20 @@ exports.getProducts = (req,res,next) => {
             pageTitle: 'shop',
             path: '/',
             asProds: products.length > 0,
-            productCSS: true, 
-            activeShop: true
+            //productCSS: true, 
+            //activeShop: true
         });
     });
 };
+
+exports.adminProducts =  (req,res,next) => {
+    //Product.fetchAll(products => {
+        res.render('admin/products', {
+            //prods: products, 
+            pageTitle: 'Admin Products',
+            path: '/admin/product',
+            //asProds: products.length > 0,
+        });
+    //});
+};
+
