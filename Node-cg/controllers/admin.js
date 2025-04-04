@@ -16,19 +16,6 @@ exports.postAddProducts = (req, res, next) => {
     res.redirect('/');
 };
 
-exports.getProducts = (req,res,next) => {
-    Product.fetchAll(products => {
-        res.render('shop/product-list', {
-            prods: products, 
-            pageTitle: 'shop',
-            path: '/',
-            asProds: products.length > 0,
-            //productCSS: true, 
-            //activeShop: true
-        });
-    });
-};
-
 exports.adminProducts =  (req,res,next) => {
     //Product.fetchAll(products => {
         res.render('admin/products', {
