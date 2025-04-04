@@ -4,10 +4,6 @@ exports.getAddProducts = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'add Product', 
         path: '/admin/add-product',
-        //activeAddProduct: true,
-        //productCSS: true,
-        //formsCSS: true
-        })
 };
 
 exports.postAddProducts = (req, res, next) => {
@@ -16,13 +12,12 @@ exports.postAddProducts = (req, res, next) => {
     res.redirect('/');
 };
 
-exports.adminProducts =  (req,res,next) => {
+exports.getProducts =  (req,res,next) => {
     //Product.fetchAll(products => {
         res.render('admin/products', {
             //prods: products, 
             pageTitle: 'Admin Products',
             path: '/admin/product',
-            //asProds: products.length > 0,
         });
     //});
 };
