@@ -4,6 +4,7 @@ exports.getAddProducts = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'add Product', 
         path: '/admin/add-product',
+    });
 };
 
 exports.postAddProducts = (req, res, next) => {
