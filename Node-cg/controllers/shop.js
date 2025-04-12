@@ -24,11 +24,12 @@ exports.getProducts = (req,res,next) => {
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
     Product.findById(prodId, product => {
-        console(product)
-    });;
-    console.log(prodId);
-    res.redirect('/');
-    //product.fethcAll(products => {})
+        res.render('shop/product-detail', {
+            product: product,
+            pageTitle:  product.pageTitle,
+            path: '/products'
+        });
+    });
 };
 
 exports.getCart =  (req,res,next) => {
