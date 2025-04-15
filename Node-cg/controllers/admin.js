@@ -37,6 +37,9 @@ exports.getEditProducts = (req, res, next) => {
     });
 };
 
+exports.postEditProducts = (res, req, next) => {
+    
+}
 exports.getProducts =  (req,res,next) => {
     Product.fetchAll(products => {
         res.render('admin/products', {
