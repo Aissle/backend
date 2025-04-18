@@ -38,7 +38,7 @@ exports.getEditProducts = (req, res, next) => {
 };
 
 exports.postEditProducts = (res, req, next) => {
-    const prodId = req.body.productId;
+    
 }
 exports.getProducts =  (req,res,next) => {
     Product.fetchAll(products => {
