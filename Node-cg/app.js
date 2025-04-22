@@ -12,6 +12,7 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const rootDir = require('./util/path');
 const errController = require('./controllers/errController');
+const db = require('./util/database');
 
 app.use(bodyParser.urlencoded({extended: false}));        
 app.use(express.static(path.join(rootDir, 'public')));
