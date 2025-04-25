@@ -13,10 +13,7 @@ const Product = sequelize.define('product', {
         type: Sequilize.STRING,
         allowNull: false
     },
-    price: {
-        type: Sequilize.STRING,
-        allowNull: false
-    },
+    price: Sequilize.STRING,
     imageUrl: {
         type: Sequilize.STRING,
         allowNull: false
