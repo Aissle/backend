@@ -12,19 +12,26 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const rootDir = require('./util/path');
 const errController = require('./controllers/errController');
-const db = require('./util/database');
+const sequelize = require('./util/database');
 
 app.use(bodyParser.urlencoded({extended: false}));        
 app.use(express.static(path.join(rootDir, 'public')));
-// app.use('/', (req, res, next) => {
-//     //console.log('This always runs!');
-//     next();
-// });
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+
 app.use(errController.get404);
-app.listen(4000 );
+
+sequelize.sync()
+    .then(result => {
+        //console.log(result);
+        app.listen(4000 );
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
 
 
 //node.js
