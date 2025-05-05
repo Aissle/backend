@@ -1,11 +1,18 @@
-const Sequelize = require('sequelize');
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
-const sequelize = new Sequelize('node-complete', 'root', 'Aminat', {
-    dialect: 'mysql',
-    host: 'localhost'
-});
+const mongoConnect = callback => {
+    MongoClient.connect(
+        // 'mongodb+srv://jane:jane123@cluster0.18p7zv8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+        'mongodb+srv://jane:jane123@cluster0.18p7zv8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
-module.exports = sequelize;
+    )
+        .then(result => {
+            console.log('connected!');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
 
-//docs.sequilizejs.com to learn more abotu how it works
-//  and how to configure it
+module.exports = mongoConnect;
