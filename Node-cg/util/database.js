@@ -1,12 +1,9 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
-
+const MongodbLink = require('./secretes')
 const mongoConnect = callback => {
     MongoClient.connect(
-        // 'mongodb+srv://jane:jane123@cluster0.18p7zv8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-        //'mongodb+srv://jane:jane123@cluster0.18p7zv8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-        'mongodb+srv://Jane:Jane123@cluster0.18p7zv8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-
+        MongodbLink
     )
         .then(client => {
             console.log('connected!');
@@ -20,3 +17,13 @@ const mongoConnect = callback => {
 module.exports = mongoConnect;
 
 
+// require('dotenv').config();
+// const mongoose = require('mongoose');
+
+// mongoose.connect(process.env.MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+//file.env -> link
+//terminat -> echo ".env" >> .gitignore
